@@ -10,7 +10,7 @@
 </head>
 <body <?php body_class(); ?>>
 
-<header role="banner" class='bg-dark'>
+<header role="banner" class='bg-dark mb-3'>
 
     <div class="container">
         <div class="row d-flex justify-content-between py-4">
