@@ -1,4 +1,4 @@
-<article <?php post_class( 'mb-3 border-left pl-2 mt-3', post_id ) ?> >
+<article <?php post_class( 'mb-3 border-left pl-2 mt-3') ?> >
     
     <h2 class='display-4'>
         <a href=" <?php the_permalink(); ?> " title='<?php the_title_attribute(); ?>'> <?php the_title() ?> </a>

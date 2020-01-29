@@ -3,7 +3,7 @@
     //adding style : css & js
     function firsttheme_assets(){
 
-        wp_enqueue_style( 'firsttheme-stylesheet',
+        wp_enqueue_style( 'firsttheme-bootstrap-stylesheet',
             get_template_directory_uri().'/dist/assets/css/bootstrap.css',
             array(),
             '1.0.0',
@@ -12,7 +12,7 @@
 
         wp_enqueue_style( 'firsttheme-stylesheet',
             get_template_directory_uri().'/dist/assets/css/style.css',
-            array(),
+            array('firsttheme-bootstrap-stylesheet'),
             '1.0.0',
             'all' 
         );
@@ -47,6 +47,19 @@
 
     }
     add_action('admin_enqueue_scripts', 'firsttheme_admin_assets');
+
+
+    function firsttheme_customize_preview_js(){
+        wp_enqueue_script( 
+            'firsttheme-customize-preview', 
+            get_template_directory_uri() . '/dist/assets/js/customize-preview.js', 
+            array('customize-preview' , 'jquery'),
+            '1.0.0', 
+            true 
+        );
+    }
+
+    add_action('customize_preview_init', 'firsttheme_customize_preview_js');
 
 
 ?>
