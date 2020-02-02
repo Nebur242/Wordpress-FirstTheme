@@ -5,6 +5,25 @@
 
         $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 
+        //Refreshing just the Blogname part sending an ajax refresh request
+        $wp_customize->selective_refresh->add_partial('blogname' , array(
+            'selector' => '.header__blogname',
+            'container_inclusive' => false,
+            'render_callback' => function(){
+                bloginfo('name');
+            }
+        ));
+
+        //Refreshing just the footer part sending an ajax refresh request
+        $wp_customize->selective_refresh->add_partial('firsttheme_footer_partial' , array(
+            'settings' => 'firsttheme_site_info',
+            'selector' => '.site-info',
+            'container_inclusive' => true,
+            'render_callback' => function(){
+                get_template_part( 'template-parts/footer/info' );
+            }
+        ));
+
         $wp_customize->add_section('firsttheme_footer_options' , array(
 
 

@@ -7,7 +7,7 @@
 
 
 <?php if($site_info){ ?>
-    <div class="container-fluid bg-<?php echo $footer_bg; ?> pb-2">
+    <div class="container-fluid bg-<?php echo $footer_bg; ?> pb-2 mb-4 site-info">
         <div class="row d-flex justify-content-center">
             <div class="text-light site_info__text">
                 <?php 
