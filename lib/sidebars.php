@@ -13,17 +13,18 @@
             ) 
         );
     }
-
-    $footer_layout = '3,3,3,3';
+    $widget_theme_text ='';
+    $footer_layout = sanitize_text_field( get_theme_mod('firsttheme_footer_layout' , '3,3,3,3') );
+    $footer_layout = preg_replace('/\s+/' , '' , $footer_layout);
     $columns = explode(',' , $footer_layout);
-    $footer_bg = 'dark';
-    $widget_theme ='';
+    $footer_bg = firsttheme_sanitize_footer_bg( get_theme_mod( 'firsttheme_footer_bg', 'dark' ) );
+    
 
-    if($footer_bg == 'light'){
-        $widget_theme = 'bg-dark';
+    if($footer_bg == 'dark'){
+        $widget_theme_text = 'light';
     }
     else{
-        $widget_theme = 'bg-light';
+        $widget_theme_text  = 'dark';
     }
 
     foreach($columns as $i => $column){
@@ -32,7 +33,7 @@
                 'id' => 'footer-sidebar' . ($i+1),
                 'name' => sprintf( esc_html__('Footer Widgets column %s ' , 'firsttheme'), $i+1 ) ,
                 'description' => esc_html__( 'This sidebar appears in the blog posts page.', 'firsttheme' ),
-                'before_widget' => '<section id="%1$s" class="p-2 %2$s ' .  $widget_theme.' ">',
+                'before_widget' => '<section id="%1$s" class="p-2 %2$s">',
                 'after_widget' => '</section>',
                 'before_title' => '<h5>',
                 'after_title' => '</h5>'

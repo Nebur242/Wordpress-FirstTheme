@@ -13,9 +13,28 @@ const strip_tags = (input, allowed) => {
 }
 //This comes from js/helpers/strip-tags - end
 
+
+
 wp.customize('blogname' , (value) => {
     value.bind( (to) => {
         jQuery('.header__blogname').html(strip_tags(to , '<a>'));
+    });
+});
+
+wp.customize('firsttheme_accent_color' , (value) => {
+    value.bind( (to) => {
+        let inline_css = '';
+        let inline_css_obj = firsttheme_js_variable['inline-css'];
+        for(let selector in inline_css_obj){
+            inline_css += selector + " { ";
+                for(let prop in inline_css_obj[selector]){
+                    let val = inline_css_obj[selector][prop];
+                    inline_css += prop + " : " + wp.customize(val).get();
+                }
+            inline_css += " } ";
+        }
+        console.log(inline_css);
+        jQuery('#firsttheme-stylesheet-inline-css').html(inline_css);
     });
 });
 

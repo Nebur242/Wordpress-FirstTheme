@@ -11,4 +11,8 @@
     </div>
 
     <?php firsttheme_readMore_link(); ?>
+
+    <?php echo firsttheme_delete_post(); ?>
+
+
 </article>

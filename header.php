@@ -13,9 +13,13 @@
 <header role="banner" class='bg-dark mb-3'>
 
     <div class="container mb-3">
-        <div class="row d-flex justify-content-between py-4">
+        <div class="row d-flex justify-content-between align-items-center py-4">
             <div class="c-header__logo">
-                <a href="<?php echo home_url('/'); ?>" class="h2 text-white header__blogname"> <?php bloginfo('name') ?> </a>
+                <?php if(has_custom_logo()){
+                    the_custom_logo();
+                } else{ ?>
+                    <a href="<?php echo home_url('/'); ?>" class="h2 header__blogname"> <?php bloginfo('name') ?> </a>
+                <?php } ?>
             </div>
 
             <?php get_search_form( true ) ?>

@@ -19,5 +19,16 @@
         </a>';
     }
 
+
+    function firsttheme_delete_post(){
+        $url = add_query_arg([
+            'action' => 'firsttheme_delete_post',
+            'post' => get_the_ID()
+        ] , home_url());
+        if(!current_user_can( 'delete_posts' ,  get_the_ID()   )){
+            return " <a href = ' " . esc_url( $url ) . "'>". esc_html__( 'Delete Post', 'firsttheme' ) . "</a>";
+        }
+    }
+
 ?>
     
