@@ -31,5 +31,15 @@
         }
     }
 
+    //get single meta function which checks if there is a value in the string
+    function firsttheme_meta($id , $key , $default){
+        $value = get_post_meta($id , $key , true);
+        if(!$value && $default){
+            return $default;
+        }
+
+        return $value;
+    }
+
 ?>
     
