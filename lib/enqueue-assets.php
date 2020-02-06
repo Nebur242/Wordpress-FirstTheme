@@ -27,9 +27,27 @@
             true
         );
 
+        if(is_singular() && comments_open() && get_option('thread_comments')){
+            wp_enqueue_script( 'comment-reply' );
+        }
+       
+
     }
 
     add_action('wp_enqueue_scripts', 'firsttheme_assets');
+
+    //adding additional css style to the Gutenburg editor 
+    add_action('enqueue_block_editor_assets' , 'firsttheme_block_editor_assets');
+
+    //function adding additional css style to the Gutenburg editor 
+    function firsttheme_block_editor_assets(){
+        wp_enqueue_style( 'firsttheme-block-editor-style',
+        get_template_directory_uri().'/dist/assets/css/editor.css',
+        array(),
+        '1.0.0',
+        'all' 
+    );
+    }
 
 
     function firsttheme_admin_assets(){

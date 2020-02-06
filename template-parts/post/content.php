@@ -1,11 +1,11 @@
-<article <?php post_class( 'mb-3 border-left pl-2 mt-3') ?> >
+<article <?php post_class( 'mb-3  mt-3') ?> >
 
    
     <?php if(get_the_post_thumbnail() != ''){ ?>
         
         <div>
         
-            <?php the_post_thumbnail( 'medium' ); ?>
+            <?php the_post_thumbnail( 'large' ); ?>
         
         </div>
 
@@ -25,15 +25,17 @@
         <?php } ?>
     </header>
 
-  
-
     <div> <?php firsttheme_post_meta(); ?> </div>
 
     <div> 
 
         <?php if(is_single()){ ?>
 
-            <?php the_content(); ?> 
+            <?php 
+                the_content(); 
+                wp_link_pages();
+            ?> 
+            
                 
         <?php } else { ?>
 
@@ -57,11 +59,11 @@
             } ?> 
 
             <?php if(has_tag()){
-                echo '<div>';
+                echo '<div class="my-1">';
                     /*translators: used between categories */
-                    $tags_list = get_the_tag_list( '<ul><li>' , '</li><li>' , '</li></ul>' );
+                    $tags_list = get_the_tag_list( '<ul class = "p-0"><li class="badge badge-light mr-2">#' , '</li><li class="badge badge-light">#' , '</li></ul>' );
                     /*translators: %s is between the categories list*/
-                    echo $tags_list;
+                   echo $tags_list;
                 echo '</div>';
             } ?> 
         
@@ -70,6 +72,7 @@
         
     <?php } ?>
 
+    
 
     <?php if(!is_single()){ firsttheme_readMore_link();} ?>
 

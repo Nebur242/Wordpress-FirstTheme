@@ -14,30 +14,13 @@
   
     <div class="row">
         <div class="col-lg-<?php echo $layout === 'sidebar' ? '8' : '12' ; ?>">
-            <main role="main">
-            <?php if(have_posts()) { ?>
-
-                <?php while(have_posts()){ ?>
-
-                    <?php the_post(); ?>
-
-                    <?php get_template_part( 'template-parts/post/content'); ?>
-
-                <?php }?>
-
-                <!--Adding hooks -> allow other developpers to hook into our code -->
-                <?php //do_action( 'firsttheme_after_pagination' ); ?> 
-
-                <?php } else { ?>
-
-                <?php get_template_part( 'template-parts/post/content' , 'none'); ?>
-
-                <?php } ?>
+            <main role="main" class="border-left pl-2">
+                <?php get_template_part( 'loop', 'single' ); ?>
             </main>
         </div>
         
         <?php if($layout === 'sidebar'){ ?>
-            <div class="col-lg-4 bg-light shadow p-3 border rounded mt-2">
+            <div class="col-lg-4 bg-light shadow p-3 border rounded mt-2 h-100">
                 <h1>This is the sidebar</h1>
                 <?php get_sidebar(); ?>
             </div>

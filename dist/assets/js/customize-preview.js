@@ -21,6 +21,21 @@ wp.customize('blogname' , (value) => {
     });
 });
 
+//take off the author section
+wp.customize('firsttheme_display_author_info' , (value) => {
+    value.bind( (to) => {
+        if(to){
+            jQuery('.post-author').slideDown(500);
+            console.log('show');
+        }
+        else{
+            jQuery('.post-author').slideUp(500);
+            console.log('hide');
+        }
+    } );
+});
+
+
 wp.customize('firsttheme_accent_color' , (value) => {
     value.bind( (to) => {
         let inline_css = '';

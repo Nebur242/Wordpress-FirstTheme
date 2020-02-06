@@ -13,6 +13,47 @@
             }
         ));
 
+        /*--------------------------------- Single settings ---------------------------------*/
+        //adding a new single customize section
+        $wp_customize->add_section('firsttheme_single_blog_options' , array(
+            'title' => esc_html__( 'Single Blog Option', 'firsttheme' ),
+            'description' => esc_html__( 'You can change single blog options from here.', 'firsttheme' ),
+            'active_callback' => 'firsttheme_show_single_blog_section'
+        ));
+
+        $wp_customize->add_setting('firsttheme_display_author_info' , array(
+            'default' => true,
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'frsttheme_sanitize_checkbox'
+        ));
+
+        $wp_customize->add_control('firsttheme_display_author_info', array(
+            'type' => 'checkbox',
+            'label' => esc_html__( 'Show Author Info' , 'firsttheme' ),
+            'section' => 'firsttheme_single_blog_options'
+        ) );
+
+     /*    $wp_customize->selective_refresh->add_partial('firsttheme_single_partial' , array(
+            'settings' => 'firsttheme_display_author_info',
+            'selector' => 'main.single',
+            'container_inclusive' => false,
+            'render_callback' => function (){
+                get_template_part( 'template-parts/single/author');
+            }
+        )); */
+
+        function frsttheme_sanitize_checkbox($checked){
+            return (isset($checked) && $checked == true) ? true : false;
+        }
+
+        function firsttheme_show_single_blog_section(){
+            global $post;
+            return is_single() && $post->post_type === 'post';
+        }
+
+
+
+        
 
         /*--------------------------------- General settings ---------------------------------*/
         $wp_customize->add_section('firsttheme_general_options' , array(

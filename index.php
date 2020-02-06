@@ -10,7 +10,7 @@
             </div>
             
             <?php if(is_active_sidebar( 'primary-sidebar' )): ?>
-                <div class="col-lg-4 bg-light shadow p-3 border rounded mt-2">
+                <div class="col-lg-4 bg-light shadow p-3 border rounded mt-2" style = 'height : 100%;'>
                     <h1>This is the sidebar</h1>
                     <?php get_sidebar(); ?>
                 </div>

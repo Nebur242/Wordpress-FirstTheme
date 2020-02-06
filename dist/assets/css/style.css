@@ -8,6 +8,13 @@ span.screen-reader-text {
   border-radius: 5px;
 }
 
+.size-large.wp-post-image {
+  width: 60%;
+  height: 300px;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
 .header-nav {
   width: 100%;
   position: relative;

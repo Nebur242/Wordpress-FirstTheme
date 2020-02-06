@@ -7,6 +7,7 @@
     require_once('lib/theme-support.php');
     require_once('lib/navigation.php');
     require_once('lib/include-plugins.php');
+    require_once('lib/comment-callback.php');
 
     function firsttheme_handle_delete_post(){
         if(isset($_GET['action']) && $_GET['action'] === 'firsttheme_delete_post'){
