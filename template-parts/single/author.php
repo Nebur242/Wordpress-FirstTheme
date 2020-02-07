@@ -1,4 +1,4 @@
-<div class='post-author bg-light p-2 rounded' style = 'display : flex;'>
+<div class='post-author bg-light p-2 rounded mb-3' style = 'display : flex;'>
     <h2 class='d-none'> <?php esc_attr_e( 'About The Author', 'firttheme' ); ?> </h2>
 
     <?php 

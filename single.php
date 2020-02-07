@@ -10,7 +10,6 @@
     }
 
 ?>
-
   
     <div class="row">
         <div class="col-lg-<?php echo $layout === 'sidebar' ? '8' : '12' ; ?>">

@@ -35,7 +35,7 @@ wp.customize('firsttheme_display_author_info' , (value) => {
     } );
 });
 
-
+//passing php to js for inline css
 wp.customize('firsttheme_accent_color' , (value) => {
     value.bind( (to) => {
         let inline_css = '';

@@ -4,18 +4,8 @@
 
     <?php the_post(); ?>
 
-    <?php get_template_part( 'template-parts/post/content'); ?>
+    <?php get_template_part( 'template-parts/page/content'); ?>
 
-
-    <?php
-
-        if(get_theme_mod( 'firsttheme_display_author_info', true )){
-            get_template_part( 'template-parts/single/author'); 
-        }
-        
-    ?>
-
-    
 
     <?php 
         if(comments_open()){
@@ -23,11 +13,6 @@
         }
     ?>
 
-    <?php
-
-        get_template_part( 'template-parts/single/navigation'); 
-
-    ?>
 
 <?php }?>
 

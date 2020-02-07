@@ -4,8 +4,11 @@
 
         <div class="row">
             <header>
-                <?php the_archive_title( '<h1>', '</h1>' ); ?>
-                <?php the_archive_description( '<p>', '</p>' ) ?>
+              <h1>
+                <?php 
+                    printf(esc_html__( 'Search results for : %s', 'firsttheme' ) , get_search_query());
+                ?>
+              </h1>
             </header>
         </div>
 

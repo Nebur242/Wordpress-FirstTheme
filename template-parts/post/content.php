@@ -1,4 +1,4 @@
-<article <?php post_class( 'mb-3  mt-3') ?> >
+<article <?php post_class( 'post mb-3  mt-3') ?> >
 
    
     <?php if(get_the_post_thumbnail() != ''){ ?>

@@ -28,19 +28,21 @@
             ?>
         </h5>
 
-        <ul class="comments__list">
+        <div class="comments__list">
             <?php 
             
                 wp_list_comments(
                     array(
-                        'avatar_size' => 30,
-                        'reply_text' => 'hello',
+                        'short_ping' => true,
+                        'style' => 'div',
+                        'avatar_size' => 50,
+                        'reply_text' => 'Reply',
                         'callback' => 'firsttheme_comment_callback'
                     )
                 );
             
             ?>
-        </ul>
+        </div>
  
         <?php the_comments_pagination() ?>
 

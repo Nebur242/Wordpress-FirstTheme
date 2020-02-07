@@ -16,7 +16,7 @@
 
 
 <?php if($site_info){ ?>
-    <div class="container-fluid bg-<?php echo $footer_bg; ?> pb-2 mb-4 site-info">
+    <div class="container-fluid bg-<?php echo $footer_bg; ?> pb-2 site-info">
         <div class="row d-flex justify-content-center">
             <div class="text-<?php echo $widget_theme_text; ?> site_info__text">
                 <?php 
